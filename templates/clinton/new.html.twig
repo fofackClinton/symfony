@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Add clinton {% endblock title %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+
+<div class="container" > 
+
+
+
+
+
+<div class="form-group">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    <div class="form-error" > 
+        {{ form_errors(form.name) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.firstName) }}
+    {{ form_widget(form.firstName) }}
+    <div class="form-error" > 
+        {{ form_errors(form.firstName) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.ages) }}
+    {{ form_widget(form.ages) }}
+    <div class="form-error" > 
+        {{ form_errors(form.ages) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.sex) }}
+    {{ form_widget(form.sex) }}
+    <div class="form-error" > 
+        {{ form_errors(form.sex) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.adress) }}
+    {{ form_widget(form.adress) }}
+    <div class="form-error" > 
+        {{ form_errors(form.adress) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.image) }}
+    {{ form_widget(form.image) }}
+    <div class="form-error" > 
+        {{ form_errors(form.image) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.mail) }}
+    {{ form_widget(form.mail) }}
+    <div class="form-error" > 
+        {{ form_errors(form.mail) }}
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  enregistrer
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+            {{ form_row(form.submit) }}  
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+{{ form_end(form) }}
+
+{% endblock body %}
+
+

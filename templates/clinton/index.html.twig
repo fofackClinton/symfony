@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}first project{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('succes') %}
+    <div class=" alert alert-succes mt-4">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+  Ajouter
+</button>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" _msttexthash="46462" _msthash="211">id</th>
+        <th scope="col" _msttexthash="329914" _msthash="212">nom</th>
+        <th scope="col" _msttexthash="329914" _msthash="213">prenom</th>
+        <th scope="col" _msttexthash="329914" _msthash="214">age</th>
+        <th scope="col" _msttexthash="329914" _msthash="215">sex</th>
+        <th scope="col" _msttexthash="329914" _msthash="216">adress</th>
+        <th scope="col" _msttexthash="329914" _msthash="217">mail</th>
+        <th scope="col" _msttexthash="329914" _msthash="214">action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for clintons  in clinton  %} 
+      <tr class="table-active">
+         
+        <th scope="row" _msttexthash="58019" _msthash="215"> {{ clintons.id }} </th>
+        <td >{{ clintons.name }}</td>
+        <td>{{ clintons.firstName }}</td>
+        <td>{{ clintons.ages }}</td>
+        <td>{{ clintons.sex }}</td>
+        <td>{{ clintons.adress }}</td>
+        <td >{{ clintons.mail }}</td>
+        <td>
+          
+          <a href="{{ path('app_clintonUp', { id: clintons.id } )}}" class="btn btn-primary">modifier </a>
+        </td>  
+
+         <td>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            supprimer
+          </button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> Alerte voulez vous effacer l'utilisateur </h5><br>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h2>  {{ clintons.mail }} </h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="{{ path('app_clintonDel', { id: clintons.id } )}}" class="btn btn-danger">effacer </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+        </td>
+
+
+      </tr>
+      {% endfor %}
+  
+    </tbody>
+  </table>
+
+  
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> ajouter un l'utilisateur </h5><br>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% include 'form.html.twig' %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+{% endblock %}
